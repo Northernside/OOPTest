@@ -33,19 +33,13 @@ public class OOPTest {
             System.out.println(modelDisplayName + ": shutdown!");
         }
 
+        public void pingFMMeshNetwork() {
+            FindMyNetwork.sendStateToNetwork(FMState.ONLINE);
+        }
+
         // Member Methods
         public void shrinkBatteryHealth() {
             this.batteryHealth -= 1;
-        }
-    }
-
-    public class IOS extends IPhone {
-        public IOS(String platform, String modelDisplayName, String modelNumber, String softwareVersion, Enum colorName, int batteryHealth, int storageInGB) {
-            super(platform, modelDisplayName, modelNumber, softwareVersion, colorName, batteryHealth, storageInGB);
-        }
-
-        public void pingFMMeshNetwork() {
-            FindMyNetwork.sendStateToNetwork(FMState.ONLINE);
         }
     }
 
@@ -107,6 +101,7 @@ public class OOPTest {
         BetterIPhone betterIPhone = new BetterIPhone("IPhone15,5", "iPhone 14 Pro Max Ultra M2 MAX",
                 "A2611", "16.3.1", ModelColor.RED, 420, 4096);
         iPhoneFromElias.boot();
+        iPhoneFromElias.pingFMMeshNetwork();
         thePerfectiPhoneToEverExist.boot();
         jailbrokenIPhone.boot();
         betterIPhone.boot();
