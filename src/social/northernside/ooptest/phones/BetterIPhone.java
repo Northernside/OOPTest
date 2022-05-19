@@ -12,5 +12,6 @@ public class BetterIPhone extends IPhone {
     public void boot() {
         System.out.println(modelDisplayName + ": Booted up (faster)!");
         FindMyNetwork.sendStateToNetwork(FMState.ONLINE, this);
+        isBooted = true;
     }
 }

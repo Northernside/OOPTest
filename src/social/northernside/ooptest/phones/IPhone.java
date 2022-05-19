@@ -1,10 +1,11 @@
 package social.northernside.ooptest.phones;
 
-import social.northernside.ooptest.OOPTest;
 import social.northernside.ooptest.utils.FMState;
 import social.northernside.ooptest.utils.FindMyNetwork;
 
 public class IPhone {
+    public boolean isBooted;
+
     // Member Fields
     public String platform;
     public String modelDisplayName;
@@ -28,11 +29,14 @@ public class IPhone {
     public void boot() {
         System.out.println(modelDisplayName + ": booted!");
         FindMyNetwork.sendStateToNetwork(FMState.ONLINE, this);
+        isBooted = true;
     }
 
     public void shutdown() {
-        System.out.println(modelDisplayName + ": shutdown!");
-        FindMyNetwork.sendStateToNetwork(FMState.OFFLINE, this);
+        if (isBooted) {
+            System.out.println(modelDisplayName + ": shutdown!");
+            FindMyNetwork.sendStateToNetwork(FMState.OFFLINE, this);
+        }
     }
 
     // Member Methods

@@ -36,6 +36,7 @@ public class OOPTest {
         System.out.println("Elias' iPhone lost 1% battery health.\nCurrent battery health: " + iPhoneFromElias.batteryHealth + "%");
         iPhoneFromElias.shutdown();
         thePerfectiPhoneToEverExist.shutdown();
+        jailbrokenIPhone.shutdown();
         betterIPhone.shutdown();
     }
 }
